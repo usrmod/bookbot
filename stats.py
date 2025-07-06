@@ -17,10 +17,16 @@ def repeat_char(text):
             
 def sorted_list(text):
     char_count = repeat_char(text)
-    # print (char_count)
+    sorted_char_count = dict(sorted(char_count.items(), key = lambda item: item[1], reverse=True))
+    # print(sorted_char_count)
+
     # list_of_dicts = []
-    temp_dict = {}
-    for key, value in char_count:
-        print(key, value)
-        temp_dict[key] = value
-    return list(temp_dict)
+    # temp_dict = {}
+    for key, value in sorted_char_count.items():
+        print(f"{key}: {value}")
+    #     temp_dict[key] = value
+        
+    #     # print(temp_dict)
+    #     list_of_dicts.append(temp_dict.copy())
+    #     del temp_dict[key]
+    # # return list(list_of_dicts)

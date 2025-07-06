@@ -1,4 +1,4 @@
-
+import sys
 from stats import word_count, repeat_char, sorted_list
 def get_book_text(file_path_input):
     with open(file_path_input) as f:
@@ -15,11 +15,22 @@ def get_book_text(file_path_input):
 #     return word_count
 
 def main():
-    book_path = "/home/fedora/bootdev/bookbot/books/frankenstein.txt"
+    # book_path = "/home/fedora/bootdev/bookbot/books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
+    print(f"============ BOOKBOT ============\nAnalyzing book found at {book_path}...\n----------- Word Count ----------")
+
     # get_book_text(book_path)
-    # print(f"{word_count(get_book_text(book_path))} words found in the document")
+    
+
+    print(f"Found {word_count(get_book_text(book_path))} total words")
+    print("--------- Character Count -------")
     # print(repeat_char(get_book_text(book_path)))
-    print(sorted_list(get_book_text(book_path)))
+    
+    sorted_list(get_book_text(book_path))
+    # print(sorted_list(get_book_text(book_path)))
     
 if __name__ == "__main__":
     main()
